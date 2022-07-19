@@ -1,6 +1,7 @@
 package com.shamsipour.allinonebot.business;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -13,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import com.shamsipour.allinonebot.model.BotInfoModel;
 import com.shamsipour.allinonebot.model.Keyboards;
+import com.shamsipour.allinonebot.webapi.WeatherApi;
 
 public class BotHandeler extends TelegramLongPollingBot {
 	BotInfoModel botInfoModel = new BotInfoModel();
@@ -51,6 +53,7 @@ public class BotHandeler extends TelegramLongPollingBot {
 		if (message.hasText()) {
 
 			sendMessageRequest.setChatId(message.getChatId().toString());
+			// ******************************* Weather ****************************
 
 			String userMessage = message.getText();
 			if (userMessage == "⛅️ آب و هوا ⛅️") {
@@ -58,13 +61,40 @@ public class BotHandeler extends TelegramLongPollingBot {
 					sendMessageRequest.setReplyMarkup(replyKeyboardMarkupWeather);
 				}
 				sendMessageRequest.setText("👇 لطفا یکی از موارد زیر را انتخاب کنید 👇");
+<<<<<<< Updated upstream
 			} else if (userMessage == "💰 قیمت ارزهای دیجیتال 💰") {
+=======
+			}
+			// --------------- Current ----------------
+			else if (userMessage.equalsIgnoreCase("⛅️ آب و هوای امروز ⛅️")) {
+				sendMessageRequest.setText("برای دریافت وضعیت آب و هوا به شکل زیر عمل کنید 👇\n" + "\n"
+						+ "/w نام شهر \n" + "\n" + "مثال :\n" + " /w تهران\n" + "/w tehran\n" + "\n"
+						+ "چند لحظه پس از ارسال وضعیت آب و هوایی شهر مورد نظر شما ارسال خواهد شد ✅");
+			} else if (update.getMessage().getText().contains("/w ")) {
+				String cityName = update.getMessage().getText().replace("/w ", "");
+				try {
+					sendMessageRequest.setText(WeatherHandeler.callWeatherByBot(WeatherApi.getWeatherByCity(cityName)));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			// ************************************************************************
+
+			else if (userMessage.equalsIgnoreCase("💰 قیمت ارزهای دیجیتال 💰")) {
+>>>>>>> Stashed changes
 
 				sendMessageRequest.setText("💰 قیمت ارزهای دیجیتال 💰");
 			} else if (userMessage == "⭐️ قیمت طلا ⭐️") {
 
 				sendMessageRequest.setText("⭐️ قیمت طلا ⭐️");
+<<<<<<< Updated upstream
 			} else if (userMessage == "👁‍🗨 ساخت Qrcode 👁‍🗨") {
+=======
+
+				// ******************************* QrCode ************************
+			} else if (userMessage.equalsIgnoreCase("👁‍🗨 ساخت Qrcode 👁‍🗨")) {
+>>>>>>> Stashed changes
 				sendMessageRequest.setText("برای ساخت Qrcode با شکل زیر عمل کنید 👇\n" + "\n"
 						+ "/qr لینک یا متن مورد نظر\n" + "\n" + "چند لحظه پس از ارسال عکس Qrcode شما ارسال خواهد شد ✅");
 			} else if (update.getMessage().getText().contains("/qr ")) {
@@ -79,7 +109,14 @@ public class BotHandeler extends TelegramLongPollingBot {
 				} catch (TelegramApiException e) {
 					e.printStackTrace();
 				}
+<<<<<<< Updated upstream
 			} else if (userMessage == "درباره ما") {
+=======
+			}
+			// *************************************************************
+
+			else if (userMessage.equalsIgnoreCase("درباره ما")) {
+>>>>>>> Stashed changes
 
 				sendMessageRequest.setText(
 						"\u200C\u200Cما در زمینه\u200Cی طراحی و توسعه\u200Cی وب فارسی فعال هستیم. نشاط، انگیزه و نوآوری اولین چیزی\u200Cست که از تیم ما به چشم می\u200Cخورد. موضوع اصلی فعالیت ما تولید پوسته\u200Cهای ایرانی برای سیستم وردپرس است. همچنین برنامه نویسی، طراحی سایت، خدمات میزبانی و ... از جمله خدمات ماست.");

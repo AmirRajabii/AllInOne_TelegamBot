@@ -9,6 +9,7 @@ import com.shamsipour.allinonebot.business.BotHandeler;
 public class Main {
 
 	public static void main(String[] args) {
+<<<<<<< Updated upstream
 
 //		ObjectMapper mapper = new ObjectMapper();
 //		try {
@@ -21,11 +22,14 @@ public class Main {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
+=======
+>>>>>>> Stashed changes
 		try {
 			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
 			telegramBotsApi.registerBot(new BotHandeler());
 		} catch (TelegramApiException e) {
 			e.printStackTrace();
+<<<<<<< Updated upstream
 		}
 		System.out.println("--- Bot Started ---");
 	}
@@ -48,7 +52,10 @@ public class Main {
 			this.icon = icon;
 			this.sunrise = sunrise;
 			this.sunset = sunset;
+=======
+>>>>>>> Stashed changes
 		}
+		System.out.println("--- Bot Started ---");
 
 	}
 }
