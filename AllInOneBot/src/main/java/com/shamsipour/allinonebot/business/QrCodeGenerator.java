@@ -23,9 +23,7 @@ public class QrCodeGenerator {
 	}
 
 	public static void getQrcodeData(String data){
-		// path where we want to get QR Code
 		String path = "./Quote.png";
-		// Encoding charset to be used
 		String charset = "UTF-8";
 		Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
 		// generates QR code with Low level(L) error correction capability
@@ -33,12 +31,8 @@ public class QrCodeGenerator {
 		// invoking the user-defined method that creates the QR code
 		try {
 			generateQRcode(data, path, charset, hashMap, 300, 300);
-		} catch (WriterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}// increase or decrease height and width accodingly
+		} catch (WriterException | IOException e) {
+			System.out.println("Error in Genrate QrCode");
+		} 
 	}
 }

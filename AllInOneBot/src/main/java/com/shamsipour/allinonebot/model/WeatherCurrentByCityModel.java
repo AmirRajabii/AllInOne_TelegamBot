@@ -2,7 +2,7 @@ package com.shamsipour.allinonebot.model;
 
 import java.util.List;
 
-public class WeatherByCityModel {
+public class WeatherCurrentByCityModel {
 	// Start inner class
 	public static class Coord {
 		private float lon;

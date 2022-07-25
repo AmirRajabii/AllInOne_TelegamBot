@@ -3,7 +3,7 @@ package com.shamsipour.allinonebot.model;
 import java.util.List;
 
 public class ReligiousTimesModel {
-	public class Result {
+	public static class Result {
 		private String shahr;
 		private String tarikh;
 		private String azansobh;
@@ -80,7 +80,7 @@ public class ReligiousTimesModel {
 	}
 
 	public boolean Ok;
-	public List<Result> result;
+	public List<Result> Result;
 
 	public boolean isOk() {
 		return Ok;
@@ -91,11 +91,11 @@ public class ReligiousTimesModel {
 	}
 
 	public List<Result> getResult() {
-		return result;
+		return Result;
 	}
 
 	public void setResult(List<Result> result) {
-		this.result = result;
+		this.Result = result;
 	}
 
 }
