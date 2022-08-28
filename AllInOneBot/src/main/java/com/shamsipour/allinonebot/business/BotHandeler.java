@@ -24,7 +24,7 @@ public class BotHandeler extends TelegramLongPollingBot {
 		this.update = update;
 		if (update.hasMessage()) {
 			Message message = update.getMessage();
-			if (message.hasText() || message.hasLocation()) {
+			if (message.hasText()) {
 				try {
 					handleIncomingMessage(message);
 				} catch (TelegramApiException | IOException e) {

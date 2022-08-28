@@ -103,7 +103,7 @@ public class BotWebApi {
 
 	// *********** Weather Current ************
 	public static WeatherCurrentByCityModel getWeatherByCity(String cityName) throws IOException {
-		final String APP_ID = "baff0bf20186f20b88fb78ad9df15830";
+		final String APP_ID = "";
 		final String API_URL = "http://api.openweathermap.org/data/2.5/weather";
 		WeatherCurrentByCityModel result = null;
 		final URL url = new URL(API_URL.concat("?q=" + cityName + "&appid=" + APP_ID + "&units=metric "));
@@ -173,7 +173,7 @@ public class BotWebApi {
 
 	// *********** Weather 10 Days ************
 	public static WeatherTenDaysModel getWeatherTenDayds(String cityName) throws IOException {
-		final String APP_ID = "baff0bf20186f20b88fb78ad9df15830";
+		final String APP_ID = "";
 		final String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily";
 		WeatherTenDaysModel result = null;
 		final URL url = new URL(API_URL.concat("?q=" + cityName + "&cnt=10" + "&appid=" + APP_ID + "&units=metric "));
@@ -197,9 +197,9 @@ public class BotWebApi {
 		return result;
 	}
 
-	// *************** Crypto Search *****************
+	// *************** Crypto Search And Top 10 Crypto Price *****************
 	public static CryptoModel getCrypto() throws IOException {
-		final String key = "693b856dc4ff04c5d61d0f20e8618a40";
+		final String key = "";
 		final String API_URL = "http://api.coinlayer.com/api/live";
 		CryptoModel result = null;
 		final URL url = new URL(API_URL.concat("?access_key=" + key));

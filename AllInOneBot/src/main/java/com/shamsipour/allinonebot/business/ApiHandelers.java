@@ -95,7 +95,6 @@ public class ApiHandelers {
 		if (weatherTenDaysModel == null) {
 			return "❌ شهر یافت نشد ❌";
 		}
-
 		return "✨ آب و هوای 10 روز آینده شهر " + weatherTenDaysModel.getCity().getName() + " ✨\n" + "\n" + "1️⃣"
 				+ new JalaliConverter(weatherTenDaysModel.getList().get(0).getDt() * 1000).getShamsi() + "\n" + "\n"
 				+ "  بیشترین دما :  " + weatherTenDaysModel.getList().get(0).getTemp().getMax() + " 🌡 \n" + "\n"
